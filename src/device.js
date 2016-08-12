@@ -151,9 +151,10 @@ class Device extends EventEmitter {
 
     _completeConnect () {
         if (this._batteryReady && this._LEDReady) {
+            this.emit("connect");
             if (this._connectCallback) {
                 this._connectCallback();
-                this.emit("connect");
+                //this.emit("connect");
                 this._connectCallback = null;
             }
         }
